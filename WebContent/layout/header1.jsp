@@ -3,4 +3,4 @@
 <link rel="stylesheet" href="/CSS/Final_Project.css">
 
 
-<a id="header_logo" href="MainIndex.jsp">커뮤니티</a>
+<a id="header_logo" href="MainIndex.jsp"><img width="250px" alt="logo" src="/resource/logo.png"></a>

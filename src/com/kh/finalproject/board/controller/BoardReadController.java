@@ -39,7 +39,6 @@ public class BoardReadController extends HttpServlet{
 		if(VO != null){
 			req.setAttribute("boardread", VO);
 			dispatcher = req.getRequestDispatcher("/Post_View.jsp");
-			
 		} else {
 			dispatcher = req.getRequestDispatcher("/Error.jsp");
 		}

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>커뮤니티 - 회원가입</title>
+<title>온라인 커뮤니티 - 왓츠</title>
 <link rel="stylesheet" href="/CSS/Final_Project.css">
 </head>
 <body>
