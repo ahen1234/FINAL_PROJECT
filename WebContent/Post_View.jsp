@@ -25,26 +25,26 @@
 		
 		<div id="content">
 			<div id ="content_board5555">
-				<table class = "content_board_write">
+				<table class="content_board_write">
 					<tr>
-						<th>제목</th>
+						<td><textarea rows="2" cols="175" disabled="disabled" style="font-size:15px; resize: none;"><c:out value="${boardread.TITLE}" /></textarea></td>
 					</tr>
 					<tr>
-						<th></th>
+						<td>
+							<div style="height: 500px;">
+								<textarea rows="29" cols="175" disabled="disabled" style="font-size:15px; resize: none;"><c:out value="${boardread.CONTENTS}" /></textarea>
+							</div>
+						</td>
 					</tr>
-					<c:forEach var="boardreaditem" items="${boardread}" >
-						<tr>
-							<td><c:out value="${boardreaditem.TITLE}"/></td>
-						</tr>
-						<tr>
-							<td>
-								<div style="height: 500px;">
-								<c:out value="${boardreaditem.CONTENTS}"/>
-								</div>
-							</td>
-						</tr>
-						</c:forEach>
 				</table>
+				<form action="" method="post">
+				<table border="1">
+					<tr>
+						<td><input type="text" name = "comment"></td>
+						<td><input type="submit" value="등록"></td>
+					</tr>
+				</table>
+				</form>
 			</div>
 		</div>
 		

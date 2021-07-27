@@ -80,4 +80,41 @@ public class BoardDAO {
 		
 	}
 
+	public BoardVO boardread(String title, String id) {
+		String sql = "SELECT * FROM FINAL_BOARD WHERE TITLE = ? AND ID = ?";
+		String sql2 = "UPDATE FINAL_BOARD SET VIEWS_CUT = VIEWS_CUT + 1 WHERE TITLE = ? AND ID = ?";
+		BoardVO vo = null;
+		try {
+			conn = this.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, title);
+			pstmt.setString(2, id);
+			rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				vo = new BoardVO();
+				vo.setID(rs.getString("ID"));
+				vo.setNICKNAME(rs.getString("NICKNAME"));
+				vo.setTITLE(rs.getString("TITLE"));
+				vo.setCONTENTS(rs.getString("CONTENTS"));
+				vo.setREPORTING_DATE(rs.getString("REPORTING_DATE"));
+				vo.setVIEWS_CUT(rs.getInt("VIEWS_CUT"));
+				vo.setRECOMMEND_CUT(rs.getInt("RECOMMEND_CUT"));
+				vo.setREPORT(rs.getInt("REPORT"));
+			}
+			
+			pstmt = conn.prepareStatement(sql2);
+			pstmt.setString(1, title);
+			pstmt.setString(2, id);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			this.close(conn, pstmt, rs);
+		}
+		
+		return vo;
+	}
+
 }
