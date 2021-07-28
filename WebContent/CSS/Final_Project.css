@@ -303,7 +303,6 @@ display: inline-block;
 }
 
 
-
 .content_board_contents {
 	width: 100%;
 	height: 400px;
@@ -316,9 +315,5 @@ display: inline-block;
 	resize: none;
 }
 
-#footer {
-	background: green;
-	clear: both;
-	width: 100%;
-	height: 60px;
-}
+
+

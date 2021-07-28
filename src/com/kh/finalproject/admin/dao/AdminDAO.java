@@ -66,6 +66,8 @@ public class AdminDAO {
 					
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			this.close(conn, pstmt, rs);
 		}
 		return list;
 	}

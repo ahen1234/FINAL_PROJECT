@@ -1,10 +1,14 @@
 package com.kh.finalproject.member.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 import com.kh.finalproject.vo.MemberVO;
 
 public class MemberDAO {
@@ -44,6 +48,30 @@ public class MemberDAO {
 		}
 	}
 	
+	public int MemberJoin(String ID, String PW, String NICKNAME, String MAIL) {
+		String sql = "INSERT INTO FINAL_USER VALUES (?,?,?,?,?,?,?)";
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat sdate = new SimpleDateFormat("YYYY-MM-DD");
+		String time = sdate.format(date);
+		try {
+			conn = this.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, ID);
+			pstmt.setString(2, PW);
+			pstmt.setString(3, NICKNAME);
+			pstmt.setString(4, MAIL);
+			pstmt.setInt(5, 0);
+			pstmt.setString(6, "회원");
+			pstmt.setString(7, time);
+			pstmt.executeUpdate();
+			
+			conn.commit();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 1;
+	}
 
 	public int UserLogin(String ID, String PW) {
 		try {
