@@ -28,6 +28,6 @@
 					<li>보유 포인트 : ${loginMember.point}point</li>
 					<li>회원 등급 : ${loginMember.grade}</li>
 			</ul>		
-			<button class ="sideber_login_btn" onclick="location.href = 'Admin_management_user.jsp'">관리자페이지</button>
+			<button class ="sideber_login_btn" onclick="location.href = 'Admin_Page.jsp'">관리자페이지</button>
 			<button class ="sideber_login_btn" onclick="location.href = 'Logout.jsp'">로그아웃</button>
 		</c:if>
