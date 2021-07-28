@@ -31,11 +31,6 @@
 				<!--<jsp:include page="Admin_view.jsp" flush="false" />-->
 			</div>
 		</div>
-		
-
-		<div id="footer">
-			<h1>#footer</h1>
-		</div>
 	</div>
 </body>
 </html>
