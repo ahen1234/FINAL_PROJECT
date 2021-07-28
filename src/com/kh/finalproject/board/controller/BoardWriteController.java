@@ -1,5 +1,8 @@
 package com.kh.finalproject.board.controller;
 
-public class BoardWriteController {
+import javax.servlet.http.HttpServlet;
 
+public class BoardWriteController extends HttpServlet {
+		
+	
 }

@@ -31,21 +31,23 @@
 			<div id ="content_board">
 				<form action="" method="post">
 				<table class="content_board_table" >
-				<caption class="content_board_position">회원 정보</caption>
+				<caption>회원 정보</caption>
 					<tr>
+						<th></th>
 						<th>아이디</th>
 						<th>닉네임</th>
-						<th>메일</th>
+						<th>Emali</th>
 						<th>가입일자</th>
 						<th></th>
 					</tr>
 					<c:forEach var="Memberlistitem" items="${Memberlist}" varStatus="status" end="12">
 						<tr>
+							<td><input type="checkbox" ></td>
 							<td><c:out value="${Memberlistitem.id}"/></td>
 							<td><c:out value="${Memberlistitem.nickname}"/></td>
 							<td><c:out value="${Memberlistitem.mail}"/></td>
 							<td><c:out value="${Memberlistitem.joindate}"/></td>
-							<td><input type="checkbox" ></td>
+							<td><button>회원 탈퇴</button></td>
 						</tr>
 						<!-- 첫번째 줄 끝 -->
 					</c:forEach>
