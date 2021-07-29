@@ -1,10 +1,12 @@
 package com.kh.finalproject.board.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.kh.finalproject.vo.BoardVO;
@@ -115,6 +117,35 @@ public class BoardDAO {
 		}
 		
 		return vo;
+	}
+
+	public boolean boardwrite(String id, String nickname, String title, String contents, String board) {
+		String sql = "INSERT INTO FINAL_BOARD VALUES (?,?,?,?,?,?,?,?,?)";
+		Date date = new Date(System.currentTimeMillis());
+		SimpleDateFormat sdate = new SimpleDateFormat("YYYY-MM-DD HH-mm-ss");
+		String time = sdate.format(date);
+		
+		try {
+			conn = this.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, board);
+			pstmt.setString(2, id);
+			pstmt.setString(3, nickname);
+			pstmt.setString(4, title);
+			pstmt.setString(5, contents);
+			pstmt.setInt(6, 0);
+			pstmt.setInt(7, 0);
+			pstmt.setInt(8, 0);
+			pstmt.setString(9, time);
+			pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		
+		
 	}
 
 	
