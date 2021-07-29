@@ -57,7 +57,7 @@
 					<c:forEach var="boardlistitem" items="${boardlist}" varStatus="status" end="12">
 						<tr>
 							<td><c:out value="${status.count}"/></td>
-							<td><a href="/boardread?post_code=${boardlistitem.POST_CODE}"><c:out value="${boardlistitem.TITLE}"/></a></td>
+							<td><a href="/boardread?post_code=${boardlistitem.POST_CODE}&&/Commentlist?post_code=${boardlistitem.POST_CODE}"><c:out value="${boardlistitem.TITLE}"/></a></td>
 							<td><c:out value="${boardlistitem.NICKNAME}"/></td>
 							<td><c:out value="${boardlistitem.VIEWS_CUT}"/></td>
 							<td><c:out value="${boardlistitem.REPORTING_DATE}"/></td>

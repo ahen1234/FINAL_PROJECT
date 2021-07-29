@@ -37,14 +37,33 @@
 						</td>
 					</tr>
 				</table>
-				<form action="" method="post">
-				<table border="1">
-					<tr>
-						<td><input type="text" name = "comment"></td>
-						<td><input type="submit" value="등록"></td>
-					</tr>
-				</table>
-				</form>
+				<div>
+					<form action="/Commentwrite" method="post">
+						<table border="1" >
+							<tr>
+								<td>
+								<input type="text" name="comment">
+								<input type="hidden"" name="id" value="${loginMember.id}"> 
+								<input type="hidden"" name="post_code" value="${boardlist.POST_CODE}"> 
+								</td>
+								
+								<td><input type="submit" value="등록"></td>
+							</tr>
+							<c:forEach var="boardlistitem" items="" varStatus="status" end="12">
+								<tr>
+									<td><c:out value="${status.count}" /></td>
+									<td><c:out value="${boardlistitem.NICKNAME}" /></td>
+									<td><c:out value="${boardlistitem.VIEWS_CUT}" /></td>
+									<td><c:out value="${boardlistitem.REPORTING_DATE}" /></td>
+								</tr>
+							</c:forEach>
+						</table>
+					</form>
+					<table>
+					
+				</table>		
+				</div>
+				
 			</div>
 		</div>
 	</div>
