@@ -10,6 +10,7 @@ public class BoardVO {
 	private int RECOMMEND_CUT;
 	private int REPORT;
 	private String REPORTING_DATE;
+	private String POST_CODE;
 	public String getBOARD_TYPE() {
 		return BOARD_TYPE;
 	}
@@ -63,6 +64,12 @@ public class BoardVO {
 	}
 	public void setREPORTING_DATE(String rEPORTING_DATE) {
 		REPORTING_DATE = rEPORTING_DATE;
+	}
+	public String getPOST_CODE() {
+		return POST_CODE;
+	}
+	public void setPOST_CODE(String pOST_CODE) {
+		POST_CODE = pOST_CODE;
 	}
 	
 }

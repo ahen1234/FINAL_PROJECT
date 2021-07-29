@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Locale;
 
 import com.kh.finalproject.vo.MemberVO;
 
@@ -35,18 +34,7 @@ public class MemberDAO {
 		return conn;
 	}
 	
-	private void close(Connection conn, PreparedStatement pstmt,ResultSet rs) {
-		try {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+	
 	
 	public int MemberJoin(String ID, String PW, String NICKNAME, String MAIL) {
 		String sql = "INSERT INTO FINAL_USER VALUES (?,?,?,?,?,?,?)";
@@ -67,6 +55,8 @@ public class MemberDAO {
 			
 			conn.commit();
 			
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -88,11 +78,13 @@ public class MemberDAO {
 				} 
 			}
 			
+			if (rs != null){rs.close();}
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			this.close(conn, pstmt, rs);
-		}
+		} 
 		return 0;
 	}
 
@@ -115,13 +107,13 @@ public class MemberDAO {
 				vo.setGrade(rs.getString("GRADE"));
 				vo.setJoindate(rs.getString("JOINDATE"));
 			}
-			
+			if (rs != null){rs.close();}
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
 		} catch (Exception e) {
 			System.out.println("유저데이터 불러오기 오류");
 			e.printStackTrace();
-		} finally {
-			this.close(conn, pstmt, rs);
-		}
+		} 
 		
 		return vo;
 	}

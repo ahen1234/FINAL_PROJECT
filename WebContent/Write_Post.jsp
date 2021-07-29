@@ -25,7 +25,7 @@
 		
 		<div id="content">
 			<div id ="content_board5555">
-				<form action="Notice" method="post">
+				<form action="/BoardWrite" method="post">
 					<table class = "content_board_write">
 					<caption style="font-size: 40px; text-align: center; font-family: cursive;">글작성</caption>
 						<tr>

@@ -33,7 +33,9 @@ public class BoardListController extends HttpServlet {
 		if(boardlist.size() != 0){
 			req.setAttribute("boardlist", boardlist);
 			dispatcher = req.getRequestDispatcher("Board_View.jsp");
-		} 
+		}  else {
+			dispatcher = req.getRequestDispatcher("Board_View.jsp");
+		}
 		
 		dispatcher.forward(req, resp);
 		

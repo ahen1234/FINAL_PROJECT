@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.kh.finalproject.vo.BoardVO;
 
@@ -35,18 +36,7 @@ public class BoardDAO {
 		return conn;
 	}
 	
-	private void close(Connection conn, PreparedStatement pstmt,ResultSet rs) {
-		try {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+
 	
 	
 	public ArrayList<BoardVO> boardlists(String write) {
@@ -69,28 +59,30 @@ public class BoardDAO {
 				vo.setRECOMMEND_CUT(rs.getInt("RECOMMEND_CUT"));
 				vo.setREPORT(rs.getInt("REPORT"));
 				vo.setREPORTING_DATE(rs.getString("REPORTING_DATE"));
+				vo.setPOST_CODE(rs.getString("POST_CODE"));
 				Boardlist.add(vo);
-			}			
+			}	
+			
+			if (rs != null){rs.close();}
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			this.close(conn, pstmt, rs);
-		}
+		} 
 		
 		return Boardlist;
 		
 	}
 
-	public BoardVO boardread(String title, String id) {
-		String sql = "SELECT * FROM FINAL_BOARD WHERE TITLE = ? AND ID = ?";
-		String sql2 = "UPDATE FINAL_BOARD SET VIEWS_CUT = VIEWS_CUT + 1 WHERE TITLE = ? AND ID = ?";
+	public BoardVO boardread(String post_code) {
+		String sql = "SELECT * FROM FINAL_BOARD WHERE POST_CODE = ?";
+		String sql2 = "UPDATE FINAL_BOARD SET VIEWS_CUT = VIEWS_CUT + 1 WHERE POST_CODE = ?";
 		BoardVO vo = null;
 		try {
 			conn = this.getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, title);
-			pstmt.setString(2, id);
+			pstmt.setString(1, post_code);
 			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
@@ -103,31 +95,57 @@ public class BoardDAO {
 				vo.setVIEWS_CUT(rs.getInt("VIEWS_CUT"));
 				vo.setRECOMMEND_CUT(rs.getInt("RECOMMEND_CUT"));
 				vo.setREPORT(rs.getInt("REPORT"));
+				vo.setPOST_CODE(rs.getString("POST_CODE"));
 			}
 			
 			pstmt = conn.prepareStatement(sql2);
-			pstmt.setString(1, title);
-			pstmt.setString(2, id);
+			pstmt.setString(1, post_code);
 			pstmt.executeUpdate();
+			
+			if (rs != null){rs.close();}
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			this.close(conn, pstmt, rs);
 		}
 		
 		return vo;
 	}
+	
+	public String randomCode(){
+		Random rnd = new Random(); 
+		char[] array = new char[20]; 
+		String code = "";
+		for( int i = 0; i < array.length; i++) { 
+			array[i] = (char) ((rnd.nextInt(26) + 65)); 
+		} 
+		
+		code = String.valueOf(array);
+		
+		return code;
+	}
 
 	public boolean boardwrite(String id, String nickname, String title, String contents, String board) {
-		String sql = "INSERT INTO FINAL_BOARD VALUES (?,?,?,?,?,?,?,?,?)";
+		String sql1 = "SELECT POST_CODE FROM FINAL_BOARD";
+		String sql2 = "INSERT INTO FINAL_BOARD VALUES (?,?,?,?,?,?,?,?,?,?)";
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat sdate = new SimpleDateFormat("YYYY-MM-DD HH-mm-ss");
 		String time = sdate.format(date);
 		
 		try {
+			
+			String POST_CODE = "";
 			conn = this.getConnection();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql1);
+			rs = pstmt.executeQuery();
+			POST_CODE = this.randomCode();
+			while(rs.next()) {
+				if(rs.getString("POST_CODE") == POST_CODE){
+					POST_CODE = this.randomCode();
+				}
+			}
+			pstmt = conn.prepareStatement(sql2);
 			pstmt.setString(1, board);
 			pstmt.setString(2, id);
 			pstmt.setString(3, nickname);
@@ -137,15 +155,17 @@ public class BoardDAO {
 			pstmt.setInt(7, 0);
 			pstmt.setInt(8, 0);
 			pstmt.setString(9, time);
+			pstmt.setString(10, POST_CODE);
 			pstmt.executeUpdate();
 			
+			if (rs != null){rs.close();}
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
+			
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-		
-		
-		
-		
+		return true;
 	}
 
 	

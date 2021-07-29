@@ -27,14 +27,13 @@ public class BoardReadController extends HttpServlet{
 		req.setCharacterEncoding("utf-8");
 		resp.setContentType("text/html;charset=utf-8");
 		
-		String title = req.getParameter("title");
-		String id = req.getParameter("id");
+		String post_code = req.getParameter("post_code");
 		
 		BoardDAO DAO = new BoardDAO();
 		BoardVO VO = new BoardVO();
 		RequestDispatcher dispatcher = null;
 		
-		VO = DAO.boardread(title,id);
+		VO = DAO.boardread(post_code);
 		
 		if(VO != null){
 			req.setAttribute("boardread", VO);

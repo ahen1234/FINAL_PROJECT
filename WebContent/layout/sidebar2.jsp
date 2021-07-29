@@ -6,4 +6,22 @@
 	<li><a href="/Noticelist?write=notice">공지사항</a></li>
 	<li><a href="/Noticelist?write=free">자유게시판</a></li>
 	<li><a href="/Noticelist?write=humor">유머게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
+	<li><a href="">게시판</a></li>
 </ul>
