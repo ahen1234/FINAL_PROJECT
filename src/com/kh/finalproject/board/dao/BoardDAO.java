@@ -130,7 +130,7 @@ public class BoardDAO {
 		String sql1 = "SELECT POST_CODE FROM FINAL_BOARD";
 		String sql2 = "INSERT INTO FINAL_BOARD VALUES (?,?,?,?,?,?,?,?,?,?)";
 		Date date = new Date(System.currentTimeMillis());
-		SimpleDateFormat sdate = new SimpleDateFormat("YYYY-MM-DD HH-mm-ss");
+		SimpleDateFormat sdate = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		String time = sdate.format(date);
 		
 		try {

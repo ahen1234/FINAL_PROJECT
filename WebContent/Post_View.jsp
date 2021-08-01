@@ -43,18 +43,18 @@
 							<tr>
 								<td>
 								<input type="text" name="comment">
-								<input type="hidden"" name="id" value="${loginMember.id}"> 
-								<input type="hidden"" name="post_code" value="${boardlist.POST_CODE}"> 
+								<input type="hidden" name="id" value="${loginMember.id}"> 
+								<input type="hidden" name="nickname" value="${loginMember.nickname}"> 
+								<input type="hidden" name="post_code" value="${param.post_code}"> 
 								</td>
 								
 								<td><input type="submit" value="등록"></td>
 							</tr>
-							<c:forEach var="boardlistitem" items="" varStatus="status" end="12">
+							<c:forEach var="Commentlistitem" items="${commentlist}">
 								<tr>
-									<td><c:out value="${status.count}" /></td>
-									<td><c:out value="${boardlistitem.NICKNAME}" /></td>
-									<td><c:out value="${boardlistitem.VIEWS_CUT}" /></td>
-									<td><c:out value="${boardlistitem.REPORTING_DATE}" /></td>
+									<td><c:out value="${Commentlistitem.NICKNAME}" /></td>
+									<td><c:out value="${Commentlistitem.COMMENTS}" /></td>
+									<td><c:out value="${Commentlistitem.COMMENT_DATE}" /></td>
 								</tr>
 							</c:forEach>
 						</table>
