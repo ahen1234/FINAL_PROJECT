@@ -50,6 +50,9 @@ public class CommentDAO {
 			pstmt.setString(5, time);
 			pstmt.executeUpdate();
 			
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +78,10 @@ public class CommentDAO {
 				vo.setCOMMENT_DATE(rs.getString("COMMENT_DATE"));
 				list.add(vo);
 			}
+			
+			if (rs != null){rs.close();}
+			if (pstmt != null){pstmt.close();}
+			if (conn != null){conn.close();}
 				
 		} catch (Exception e) {
 			e.printStackTrace();

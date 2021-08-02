@@ -38,7 +38,7 @@ public class CommentWriteController extends HttpServlet {
 		
 		
 		if(result == 1 ){
-			dispatcher = req.getRequestDispatcher("/Post_View.jsp");
+			dispatcher = req.getRequestDispatcher("/boardread");
 		} else {
 			dispatcher = req.getRequestDispatcher("/Error.jsp");
 		}

@@ -62,7 +62,6 @@
 							<td><c:out value="${boardlistitem.VIEWS_CUT}"/></td>
 							<td><c:out value="${boardlistitem.REPORTING_DATE}"/></td>
 						</tr>
-						<!-- 첫번째 줄 끝 -->
 					</c:forEach>
 				</table>		
 			</div>
