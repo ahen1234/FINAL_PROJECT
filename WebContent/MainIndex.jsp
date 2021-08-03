@@ -33,13 +33,15 @@
 						<tr >
 							<th>공지사항</th>
 						</tr>
-							<c:forEach var="searchResultItem" items="${searchResultList}">
-							<tr>
-								<!-- 첫번째 줄 시작 -->
-								<td>${searchResultItem.emp_name}</td>
-							</tr>
-							<!-- 첫번째 줄 끝 -->
-						</c:forEach>
+							<c:forEach var="boardlistitem" items="${boardlist}" varStatus="status" end="12">
+						<tr>
+							<td><c:out value="${status.count}"/></td>
+							<td><a href="/boardread?post_code=${boardlistitem.POST_CODE}"><c:out value="${boardlistitem.TITLE}"/></a></td>
+							<td><c:out value="${boardlistitem.NICKNAME}"/></td>
+							<td><c:out value="${boardlistitem.VIEWS_CUT}"/></td>
+							<td><c:out value="${boardlistitem.REPORTING_DATE}"/></td>
+						</tr>
+					</c:forEach>
 					</table>
 			</div>
 			<div id="content_index2">
@@ -48,13 +50,15 @@
 						<tr >
 							<th>자유게시판</th>
 						</tr>
-							<c:forEach var="searchResultItem" items="${searchResultList}">
-							<tr>
-								<!-- 첫번째 줄 시작 -->
-								<td>${searchResultItem.emp_name}</td>
-							</tr>
-							<!-- 첫번째 줄 끝 -->
-						</c:forEach>
+							<c:forEach var="boardlistitem" items="${boardlist}" varStatus="status" end="12">
+						<tr>
+							<td><c:out value="${status.count}"/></td>
+							<td><a href="/boardread?post_code=${boardlistitem.POST_CODE}"><c:out value="${boardlistitem.TITLE}"/></a></td>
+							<td><c:out value="${boardlistitem.NICKNAME}"/></td>
+							<td><c:out value="${boardlistitem.VIEWS_CUT}"/></td>
+							<td><c:out value="${boardlistitem.REPORTING_DATE}"/></td>
+						</tr>
+					</c:forEach>
 					</table>
 			</div>
 			<div id="content_index3">
@@ -63,13 +67,15 @@
 						<tr >
 							<th>유머게시판</th>
 						</tr>
-							<c:forEach var="searchResultItem" items="${searchResultList}">
-							<tr>
-								<!-- 첫번째 줄 시작 -->
-								<td>${searchResultItem.emp_name}</td>
-							</tr>
-							<!-- 첫번째 줄 끝 -->
-						</c:forEach>
+							<c:forEach var="boardlistitem" items="${boardlist}" varStatus="status" end="12">
+						<tr>
+							<td><c:out value="${status.count}"/></td>
+							<td><a href="/boardread?post_code=${boardlistitem.POST_CODE}"><c:out value="${boardlistitem.TITLE}"/></a></td>
+							<td><c:out value="${boardlistitem.NICKNAME}"/></td>
+							<td><c:out value="${boardlistitem.VIEWS_CUT}"/></td>
+							<td><c:out value="${boardlistitem.REPORTING_DATE}"/></td>
+						</tr>
+					</c:forEach>
 					</table>
 			</div>
 			<div id="content_index4">
@@ -78,13 +84,6 @@
 						<tr >
 							<th>제목</th>
 						</tr>
-							<c:forEach var="searchResultItem" items="${searchResultList}">
-							<tr>
-								<!-- 첫번째 줄 시작 -->
-								<td>${searchResultItem.emp_name}</td>
-							</tr>
-							<!-- 첫번째 줄 끝 -->
-						</c:forEach>
 					</table>
 			</div>
 		</div>

@@ -61,6 +61,11 @@ body {
 	border-radius: 5px;
 }
 
+
+
+
+
+
 #sidebar {
 	float: left;
 	width: 23%;
@@ -128,7 +133,6 @@ body {
 	padding: 5px 0px 5px 5px;
     margin-bottom: 5px;
     border-top: 2px solid black;
-    border-bottom: 2px solid black;
     font-size: 20px;
     font-family: GmarketSansBold;
     
@@ -144,7 +148,7 @@ body {
 
 #content {
 	float: left;
-	width: 77%;
+	width: 1430;
 	height: 100%;
 }
 
@@ -176,7 +180,6 @@ body {
 }
 
 .content_index_table th, td {
-	border-bottom: 1px solid #444444;
 	padding: 10px;
 	text-align: center;
 	font-family: 'MaplestoryOTFLight';
@@ -184,15 +187,12 @@ body {
 
 .content_index_table caption {
 	text-align: right;
-	text-decoration: none;
 }
 .content_index_table caption,a {
-	text-decoration: none;
 	color: black;
 }
 
 #content_board {
-	
 	
 }
 .content_board_table {
@@ -313,6 +313,21 @@ display: inline-block;
 	border-radius: 4px;
 	background-color: #f8f8f8;
 	resize: none;
+}
+
+.content_Post_table {
+	text-decoration: none;
+	width: 1454px;
+	margin: 0;
+
+}
+
+.content_Post_td {
+	text-decoration: none;
+}
+
+.content_PostComment_td {
+	
 }
 
 

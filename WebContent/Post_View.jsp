@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>온라인 커뮤니티 - 왓츠</title>
-<link rel="stylesheet" href="/CSS/Final_Project.css">
+<link rel="stylesheet" href="/CSS/Final_Project.css?a">
 </head>
 <body>
 	<div id="container">
@@ -24,22 +24,22 @@
 		</div>
 		
 		<div id="content">
-			<div id ="content_board5555">
-				<table class="content_board_write">
-					<tr>
-						<td><textarea rows="2" cols="175" disabled="disabled" style="font-size:15px; resize: none;"><c:out value="${boardread.TITLE}" /></textarea></td>
+			<div>
+				<table class="content_Post_table">
+					<tr class= "content_Post_tr">
+						<td>
+						<textarea rows="1px" cols="117px" disabled="disabled" style="font-size: 20px; font-family: cursive; resize: none; background-color: white;"><c:out value="${boardread.TITLE}" /></textarea>
+						<textarea rows="1px" cols="" disabled="disabled" style="font-size: 20px; font-family: cursive; resize: none; background-color: white;"><c:out value="${boardread.REPORTING_DATE}" /></textarea>
+						</td>
 					</tr>
 					<tr>
 						<td>
-							<div style="height: 500px;">
-								<textarea rows="29" cols="175" disabled="disabled" style="font-size:15px; resize: none;"><c:out value="${boardread.CONTENTS}" /></textarea>
-							</div>
+							<textarea rows="100%" cols="140px" disabled="disabled" style="font-size: 20px; font-family: cursive; resize: none; background-color: white;"><c:out value="${boardread.CONTENTS}" /></textarea>
 						</td>
 					</tr>
 				</table>
-				<div>
 					<form action="/Commentwrite" method="post">
-						<table border="1" >
+						<table>
 							<tr>
 								<td>
 								<input type="text" name="comment">
@@ -47,13 +47,13 @@
 								<input type="hidden" name="nickname" value="${loginMember.nickname}"> 
 								<input type="hidden" name="post_code" value="${param.post_code}"> 
 								</td>
-								
 								<td><input type="submit" value="등록"></td>
 							</tr>
+							<caption>댓글</caption>
 							<c:forEach var="Commentlistitem" items="${commentlist}">
 								<tr>
+									<td class= "content_PostComment_td"><c:out value="${Commentlistitem.COMMENTS}" /></td>
 									<td><c:out value="${Commentlistitem.NICKNAME}" /></td>
-									<td><c:out value="${Commentlistitem.COMMENTS}" /></td>
 									<td><c:out value="${Commentlistitem.COMMENT_DATE}" /></td>
 								</tr>
 							</c:forEach>
@@ -66,6 +66,5 @@
 				
 			</div>
 		</div>
-	</div>
 </body>
 </html>

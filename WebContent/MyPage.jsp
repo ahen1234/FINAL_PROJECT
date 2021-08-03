@@ -53,7 +53,7 @@
 						</tr>
 						<tr>
 							<td>가입일자</td>
-							<td><input type="text" value="${loginMember.JOINDATE}" disabled></td>
+							<td><input type="text" value="${loginMember.joindate}" disabled></td>
 						</tr>
 						<tr>
 							<td><button type="button"
