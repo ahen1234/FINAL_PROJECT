@@ -29,7 +29,7 @@
 		<div id="content">
 			<div id="content_index1">
 					<table class="content_index_table">
-						<caption><a href="Noticeboard.jsp">+더보기</a></caption>
+						<caption><a href="/Noticelist?write=notice">+더보기</a></caption>
 						<tr >
 							<th>공지사항</th>
 						</tr>
@@ -46,7 +46,7 @@
 			</div>
 			<div id="content_index2">
 					<table class="content_index_table" >
-						<caption><a href="Forum_free.jsp">+더보기</a></caption>
+						<caption><a href="/Noticelist?write=free">+더보기</a></caption>
 						<tr >
 							<th>자유게시판</th>
 						</tr>
@@ -63,7 +63,7 @@
 			</div>
 			<div id="content_index3">
 					<table class="content_index_table">
-						<caption><a href="Forum_humor.jsp">+더보기</a></caption>
+						<caption><a href="/Noticelist?write=humor">+더보기</a></caption>
 						<tr >
 							<th>유머게시판</th>
 						</tr>
@@ -80,7 +80,7 @@
 			</div>
 			<div id="content_index4">
 					<table class="content_index_table">
-						<caption><a href="Noticeboard.jsp">+더보기</a></caption>
+						<caption><a href="Board_View.jsp">+더보기</a></caption>
 						<tr >
 							<th>제목</th>
 						</tr>
